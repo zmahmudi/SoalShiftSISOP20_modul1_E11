@@ -1,5 +1,5 @@
 
-# SoalShift_modul3_B12
+# SoalShiftSISOP20_modul1_E11
 ## Kelompok
 - Ammar Alifian Fahdan (05111840000007)
 - Zaenal Mahmudi Ismail (05111840000054)
