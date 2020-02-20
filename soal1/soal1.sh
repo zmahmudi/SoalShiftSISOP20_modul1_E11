@@ -68,3 +68,12 @@ echo "Jawaban No. 1b :"
 b_res=`echo "$b" | awk ' {split($0, x, "|"); print "- "x[2]", Profit : "x[1]}'`
 
 echo "$b_res"
+
+c_1=`echo "$b" | awk ' {split($0, x, "|"); print x[2]}' | head -n 1`
+c_2=`echo "$b" | awk ' {split($0, x, "|"); print x[2]}' | tail -n 1`
+
+c=`awk -F ',' -v state1="$c_1" -v state2="$c_2" '
+	BEGIN {
+
+	}
+'`
