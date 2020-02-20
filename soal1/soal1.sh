@@ -3,7 +3,7 @@ a=`awk -F "\t" '
 		max=0
 	}
 
-	{ arr[$13] = arr[$13] + $21; max = max + 1 }
+	{ arr[$13] = arr[$13] + sprintf("%.4f", $21); max = max + 1 }
 
 	END {
 		for(key in arr)
@@ -20,7 +20,7 @@ a=`awk -F "\t" '
 			}
 		}
 
-		print min_val "|" min_key
+		print sprintf("%.4f", min_val) "|" min_key
 	}
 ' Sample-Superstore.tsv`
 
@@ -34,11 +34,11 @@ b=`awk -F "\t" -v var="$ans_a" '
 		max=0
 	}
 
-	$13 == var { arr[$11] = arr[$11] + $21; max = max + 1 }
+	$13 == var { arr[$11] = arr[$11] + sprintf("%.4f", $21); max = max + 1 }
 
 	END {
 		for(key in arr){
-			print arr[key] "|" key
+			print sprintf("%.4f", arr[key]) "|" key
 		}
 	}
 ' Sample-Superstore.tsv | sort -g -k1,2n | head -n 2`
@@ -56,12 +56,12 @@ c=`awk -F "\t" -v state1="$c_1" -v state2="$c_2" '
 		max=0
 	}
 
-	$11 == state1 { arr[$17] = arr[$17] + $21; max = max + 1 }
-	$11 == state2 { arr[$17] = arr[$17] + $21; max = max + 1 }
+	$11 == state1 { arr[$17] = arr[$17] + sprintf("%.4f", $21); max = max + 1 }
+	$11 == state2 { arr[$17] = arr[$17] + sprintf("%.4f", $21); max = max + 1 }
 
 	END {
 		for(key in arr){
-			print arr[key] "|" key
+			print sprintf("%.4f", arr[key]) "|" key
 		}
 	}
 ' Sample-Superstore.tsv | sort -g -k1,2n | head -n 10`
