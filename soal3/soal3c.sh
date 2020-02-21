@@ -6,6 +6,9 @@ uc=0
 duc=0
 dc=0
 
+# buat file location.log dari grep
+grep -E "Location" wget.log > location.log
+
 filein=`ls pdkt_kusuma_*` 
 
 IFS=$'\n' read -rd '' -a filelist <<< "$filein"
@@ -83,4 +86,5 @@ for i in ${dupe[@]}; do
 done
 
 # echo "${#unique[@]} ${#dupeunique[@]} ${#dupe[@]}"
-mv *.log *.log.bak
+mv wget.log wget.log.bak
+mv location.log location.log.bak
