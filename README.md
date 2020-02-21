@@ -187,7 +187,7 @@ done
 Kode tersebut digunakan untuk melakukan `wget` dan melakukan penyimpanan file dengan nama custom dan menyimpan log di `wget.log`.
 
 
-Untuk 3B, format cronjob kami adalah : `5 06,14,22 * * 0-5 ` yang berarti melakukan cron tiap jam 06.01, 14.05, dan 22.05 setiap hari Minggu-Jumat.
+Untuk 3B, format cronjob kami adalah : `5 06,14,22 * * 0-5 ` yang berarti melakukan cron tiap jam 06.05, 14.05, dan 22.05 (8 jam sekali) setiap hari Minggu-Jumat.
 
 
 Untuk 3C,
