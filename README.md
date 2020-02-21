@@ -133,7 +133,37 @@ Pada suatu siang, laptop Randolf dan Afairuzr dibajak oleh seseorang dan kehilan
 
 Untuk soal ini, kami membuat 2 file, yaitu *soal2/soal2.sh* untuk enkripsi dan *soal2/soal2decrypt.sh* untuk dekripsi
 
-Untuk script soal2, kami mengambil 28 karakter random yang terdiri dari huruf besar, huruf kecil dan angka. Lalu, kami mengambil jam saat file dienkripsi dan memproses argumen yang diberikan user dengan cara *Caesar cipher* dengan key berupa jam saat file dienkripsi seperti yang diminta di soal. 
+Untuk script soal2, kami mengambil 28 karakter random yang terdiri dari huruf besar, huruf kecil dan angka. 
+
+```
+kata=`< /dev/urandom tr -dc A-Za-z0-9 | head -c28`
+echo $kata
+```
+Lalu, kami mengambil jam saat file dienkripsi 
+
+```
+jam=`date +"%k"`
+```
+
+dan memproses argumen yang diberikan user dengan format:
+
+‘bash soal2_enkripsi.sh password.txt’.
+
+dengan cara *Caesar cipher* dengan key berupa jam saat file dienkripsi seperti yang diminta di soal.
+
+```
+sikecil=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+sibesar=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+
+unkapital=${sikecil[$jam]}
+unkapital2=${sikecil[$jam-1]}
+kapital=${sibesar[$jam]}
+kapital2=${sibesar[$jam-1]}
+
+file=`echo "$1" | cut -d '.' -f1`
+man="$(echo "$file" | tr [a-z] ["$unkapital"-za-"$unkapital"] | tr [A-Z] ["$kapital"-ZA-"$kapital2"])"
+echo $kata > $man.txt
+```
 
 Untuk script soal2decrypt, kami mengambil argumen nama file yang diinputkan, lalu memprosesnya dengan *Caesar cipher*, namun kali ini kami membaliknya sehingga didapatkan plaintext yang asli.
 
