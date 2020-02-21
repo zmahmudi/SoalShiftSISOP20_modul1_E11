@@ -147,7 +147,7 @@ jam=`date +"%k"`
 
 dan memproses argumen yang diberikan user dengan format:
 
-‘bash soal2_enkripsi.sh password.txt’.
+‘bash soal2_enkripsi.sh password.txt’
 
 dengan cara *Caesar cipher* dengan key berupa jam saat file dienkripsi seperti yang diminta di soal.
 
